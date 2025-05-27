@@ -1,0 +1,15 @@
+Setup 
+
+1. InfluxDB:
+docker run -d -p 8086:8086 -v influxdb:/var/lib/influxdb --name=influxdb influxdb:1.8
+
+2. Grafana:
+docker run -d -p 3000:3000 --name=grafana grafana/grafana
+
+3. In Grafana (http://localhost:3000):
+- Login with `admin / admin`
+- InfluxDB la data source:
+  - URL: `http://host.docker.internal:8086`
+  - Database: `test_metrics`
+
+
